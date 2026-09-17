@@ -1,0 +1,122 @@
+# =========================================================
+#  天气预报网站 - Git 忽略清单
+#  作用：这里列出的文件/文件夹，git 永远不会提交到 GitHub
+#  规则：以 # 开头的是注释；! 开头表示"例外，要提交"
+# =========================================================
+
+# ---------- 1. 密钥与隐私配置（最重要，绝对不能上传） ----------
+.env
+.env.*
+# 下面这行是"例外"：.env.example 允许上传（里面只放占位符，不放真密钥）
+!.env.example
+*.env
+.env.local
+.env.development
+.env.production
+
+# 各类密钥 / 证书文件
+*.key
+*.pem
+*.p12
+*.pfx
+*.cert
+id_rsa
+id_rsa.pub
+*.jks
+*.keystore
+
+# 云服务 / 第三方账号凭证
+secrets.json
+secret.json
+credentials.json
+serviceAccount*.json
+config.secret.*
+*_secret.*
+*token*.json
+
+# ---------- 2. 依赖目录（体积大，可随时用命令重新装） ----------
+node_modules/
+bower_components/
+jspm_packages/
+.pnpm-store/
+.yarn/cache
+.yarn/install-state.gz
+
+# Python 依赖与虚拟环境
+venv/
+.venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.python-version
+
+# ---------- 3. 本地数据库文件（含用户数据，不上传） ----------
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+*.mdb
+*.accdb
+*.frm
+*.ibd
+*.sql.gz
+*.dump
+data/*.sql
+
+# ---------- 4. 日志与运行产物 ----------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.pid
+*.seed
+
+# ---------- 5. 构建输出（由源码重新生成，不必上传） ----------
+dist/
+build/
+out/
+.output/
+.cache/
+.parcel-cache/
+.temp/
+.tmp/
+coverage/
+
+# ---------- 6. 操作系统与编辑器产生的文件 ----------
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+.idea/
+*.swp
+*.swo
+*~
+.history/
+
+# ---------- 7. WorkBuddy / AI 工具的内部文件（非项目代码） ----------
+.workbuddy/
+.claude/
+AGENTS.local.md
+
+# ---------- 8. 备份与压缩包 ----------
+*.bak
+*.backup
+*.old
+*.orig
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz

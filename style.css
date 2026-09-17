@@ -1,0 +1,273 @@
+/* ===== 基础重置 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --sky-1: #e8f2ff;
+  --sky-2: #f7fbff;
+  --ink: #16324f;
+  --ink-soft: #5b7a99;
+  --line: rgba(22, 50, 79, 0.1);
+  --card: #ffffff;
+  --accent: #2f7df6;
+  --accent-soft: #eaf2ff;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(22, 50, 79, 0.08);
+}
+
+body {
+  min-height: 100vh;
+  padding: 40px 16px;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(160deg, var(--sky-1) 0%, var(--sky-2) 55%, #ffffff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ===== 外层容器 ===== */
+.app {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ===== 标题 ===== */
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ===== 搜索框 ===== */
+.search {
+  display: flex;
+  gap: 10px;
+}
+
+.search__input {
+  flex: 1;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search__input:focus {
+  border-color: var(--accent);
+}
+
+.search__btn {
+  padding: 14px 24px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.search__btn:hover {
+  opacity: 0.88;
+}
+
+/* ===== 候选城市列表 ===== */
+.candidates {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.candidates__item {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(47, 125, 246, 0.2);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.candidates__item:hover {
+  background: #dfeaff;
+}
+
+/* ===== 状态提示 ===== */
+.status {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.status--error {
+  color: #b3261e;
+  background: #fdecea;
+  border-color: rgba(179, 38, 30, 0.2);
+}
+
+/* ===== 当前天气卡片 ===== */
+.current {
+  padding: 26px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.current__city {
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+
+.current__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 10px 0 4px;
+}
+
+.current__icon {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.current__temp {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.current__desc {
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+
+.current__meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.meta-item {
+  text-align: center;
+}
+
+.meta-item dt {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.meta-item dd {
+  margin-top: 6px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* ===== 未来 7 天 ===== */
+.forecast {
+  padding: 22px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.forecast__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.forecast__list {
+  list-style: none;
+}
+
+.day {
+  display: grid;
+  grid-template-columns: 70px 36px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.day:last-child {
+  border-bottom: none;
+}
+
+.day__name {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.day__icon {
+  font-size: 22px;
+  text-align: center;
+}
+
+.day__desc {
+  font-size: 14px;
+}
+
+.day__temp {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.day__temp span {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+/* ===== 页脚 ===== */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding-bottom: 8px;
+}
+
+/* ===== 手机上收一下尺寸 ===== */
+@media (max-width: 420px) {
+  .title { font-size: 24px; }
+  .current__temp { font-size: 52px; }
+  .day { grid-template-columns: 56px 30px 1fr auto; gap: 6px; }
+}

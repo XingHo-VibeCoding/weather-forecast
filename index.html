@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>天气预报</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1 class="title">天气预报</h1>
+      <p class="subtitle">数据来源：Open-Meteo（免费公开接口，无需密钥）</p>
+    </header>
+
+    <!-- 搜索区：输入城市名，回车或点按钮搜索 -->
+    <form class="search" id="search-form">
+      <input
+        id="city-input"
+        class="search__input"
+        type="text"
+        placeholder="输入城市名，例如：北京、上海、杭州"
+        autocomplete="off"
+      />
+      <button class="search__btn" type="submit">查询</button>
+    </form>
+
+    <!-- 候选城市：搜索结果可能有多个同名城市，让用户自己选 -->
+    <ul class="candidates" id="candidates" hidden></ul>
+
+    <!-- 状态提示：加载中 / 出错信息 -->
+    <p class="status" id="status" hidden></p>
+
+    <!-- 当前天气 -->
+    <section class="current" id="current" hidden>
+      <div class="current__city" id="current-city"></div>
+      <div class="current__main">
+        <div class="current__icon" id="current-icon">☀️</div>
+        <div class="current__temp" id="current-temp">--°</div>
+      </div>
+      <div class="current__desc" id="current-desc"></div>
+      <dl class="current__meta">
+        <div class="meta-item">
+          <dt>体感</dt>
+          <dd id="current-feels">--°</dd>
+        </div>
+        <div class="meta-item">
+          <dt>湿度</dt>
+          <dd id="current-humidity">--%</dd>
+        </div>
+        <div class="meta-item">
+          <dt>风速</dt>
+          <dd id="current-wind">-- km/h</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- 未来 7 天 -->
+    <section class="forecast" id="forecast" hidden>
+      <h2 class="forecast__title">未来 7 天</h2>
+      <ul class="forecast__list" id="forecast-list"></ul>
+    </section>
+
+    <footer class="footer">
+      <p>第一次上传 GitHub 的练习项目</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
